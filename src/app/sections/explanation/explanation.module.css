@@ -27,9 +27,14 @@
 }
 
 @media screen and (min-width: 768px) {
+  .heroImg {
+    width: 564px;
+    height: 533px;
+  }
   .explanation {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
   }
 
   .explanation__article {

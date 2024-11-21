@@ -3,6 +3,12 @@
   justify-content: center;
 }
 
+@media screen and (min-width: 768px) {
+  .logoImg {
+    width: 64px;
+    height: 64px;
+  }
+}
 @media screen and (min-width: 1024px) {
   .logo {
     justify-content: flex-start;

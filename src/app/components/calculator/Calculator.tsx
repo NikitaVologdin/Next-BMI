@@ -261,12 +261,23 @@ export default function Calculator() {
           </div>
         </fieldset>
         <div className={styles.result}>
-          <strong className={styles.strong}>Your BMI is...</strong>
-          <output className={styles.output}>{bmi}</output>
-          <p className={styles.paragraph}>
-            Your BMI suggests you’re a {bmiDescription}. Your ideal weight is
-            between <span className={styles.ideal}>{idealWheight}</span>.
-          </p>
+          {bmi !== "0" ? (
+            <div className={styles.result__bmi}>
+              <strong className={styles.strong}>Your BMI is...</strong>
+              <output className={styles.output}>{bmi}</output>
+              <p className={styles.paragraph}>
+                Your BMI suggests you’re a {bmiDescription}. Your ideal weight
+                is between <span className={styles.ideal}>{idealWheight}</span>.
+              </p>
+            </div>
+          ) : (
+            <div className={styles.result__welcome}>
+              <h2 className={styles.welcome__heading}>Welcome!</h2>
+              <p className={styles.welcome__paragraph}>
+                Enter your height and weight and you’ll see your BMI result here
+              </p>
+            </div>
+          )}
         </div>
       </form>
     </section>

@@ -2,13 +2,9 @@
 import { useState, useEffect, ChangeEvent } from "react";
 import styles from "./calculator.module.css";
 
-interface ICalculatorProps {
-  className?: string;
-}
-
 type TSystem = "metric" | "imperial";
 
-export default function Calculator({ className }: ICalculatorProps) {
+export default function Calculator() {
   const [system, setSystem] = useState<TSystem>("metric");
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
@@ -146,7 +142,7 @@ export default function Calculator({ className }: ICalculatorProps) {
 
   return (
     <section
-      className={`${className} ${styles.calculator} ${
+      className={`${styles.calculator} ${
         system === "metric" ? styles.metric : styles.imperial
       }`}
     >
@@ -162,8 +158,11 @@ export default function Calculator({ className }: ICalculatorProps) {
               aria-labelledby="metric"
               checked={system === "metric"}
               onChange={metricHandler}
+              className={styles.radio__input}
             />
-            <label htmlFor="metric">Metric</label>
+            <label htmlFor="metric" className={styles.radio__label}>
+              Metric
+            </label>
           </div>
           <div className={styles.radio__control}>
             <input
@@ -174,46 +173,55 @@ export default function Calculator({ className }: ICalculatorProps) {
               aria-labelledby="imperial"
               checked={system === "imperial"}
               onChange={imperialHandler}
+              className={styles.radio__input}
             />
-            <label htmlFor="imperial">Imperial</label>
+            <label htmlFor="imperial" className={styles.radio__label}>
+              Imperial
+            </label>
           </div>
         </fieldset>
         <fieldset className={styles.data}>
           <div className={`${styles.input__control} ${styles.control__metric}`}>
-            <label htmlFor="height">Height</label>
+            <label htmlFor="height" className={styles.label}>
+              Height
+            </label>
             <input
               type="number"
               id="height"
               name="height"
               aria-labelledby="height"
               placeholder="0"
-              className={styles.cm}
+              className={`${styles.cm} ${styles.input}`}
               onChange={cmHandler}
             />
           </div>
           <div className={`${styles.input__control} ${styles.control__metric}`}>
-            <label htmlFor="weight">Weight</label>
+            <label htmlFor="weight" className={styles.label}>
+              Weight
+            </label>
             <input
               type="number"
               id="weight"
               name="weight"
               aria-labelledby="weight"
               placeholder="0"
-              className={styles.kg}
+              className={`${styles.kg} ${styles.input}`}
               onChange={kgHandler}
             />
           </div>
           <div
             className={`${styles.input__control} ${styles.control__imperial}`}
           >
-            <label id="height">Height</label>
+            <label id="height" className={styles.label}>
+              Height
+            </label>
             <div className={styles.height}>
               <input
                 type="number"
                 name="ft"
                 aria-labelledby="height"
                 placeholder="0"
-                className={styles.ft}
+                className={`${styles.ft} ${styles.input}`}
                 onChange={ftHandler}
               />
               <input
@@ -221,7 +229,7 @@ export default function Calculator({ className }: ICalculatorProps) {
                 name="in"
                 aria-labelledby="height"
                 placeholder="0"
-                className={styles.in}
+                className={`${styles.in} ${styles.input}`}
                 onChange={incHandler}
               />
             </div>
@@ -229,7 +237,7 @@ export default function Calculator({ className }: ICalculatorProps) {
           <div
             className={`${styles.input__control} ${styles.control__imperial}`}
           >
-            <label htmlFor="weight" id="weight">
+            <label htmlFor="weight" id="weight" className={styles.label}>
               Weight
             </label>
             <div className={styles.width}>
@@ -238,7 +246,7 @@ export default function Calculator({ className }: ICalculatorProps) {
                 name="st"
                 aria-labelledby="weight"
                 placeholder="0"
-                className={styles.st}
+                className={`${styles.st} ${styles.input}`}
                 onChange={stHandler}
               />
               <input
@@ -246,18 +254,18 @@ export default function Calculator({ className }: ICalculatorProps) {
                 name="lbs"
                 aria-labelledby="weight"
                 placeholder="0"
-                className={styles.lbs}
+                className={`${styles.lbs} ${styles.input}`}
                 onChange={lbsHandler}
               />
             </div>
           </div>
         </fieldset>
         <div className={styles.result}>
-          <strong>Your BMI is...</strong>
-          <output>{bmi}</output>
-          <p>
+          <strong className={styles.strong}>Your BMI is...</strong>
+          <output className={styles.output}>{bmi}</output>
+          <p className={styles.paragraph}>
             Your BMI suggests you’re a {bmiDescription}. Your ideal weight is
-            between <span>{idealWheight}</span>.
+            between <span className={styles.ideal}>{idealWheight}</span>.
           </p>
         </div>
       </form>

@@ -4,13 +4,12 @@
   background-color: var(--white);
   border-radius: 16px;
   position: absolute;
-  /* left: 50%;
-  transform: translate(-50%); */
   left: 24px;
   right: 24px;
   box-shadow: 16px 32px 56px 0px #8faecf47;
 
-  fieldset {
+  .system,
+  .data {
     border: none;
   }
 }
@@ -36,7 +35,7 @@
   align-items: center;
   gap: 18px;
 
-  input[type="radio"] {
+  .radio__input {
     appearance: none;
     width: 31px;
     height: 31px;
@@ -60,11 +59,11 @@
         1px 1px 5px 10px hsl(227, 92%, 58%, 15%);
     }
   }
-  input[type="radio"]:checked:before {
+  .radio__input:checked:before {
     transform: scale(1);
   }
 
-  label {
+  .radio__label {
     font-size: 16px;
     line-height: 150%;
     font-weight: 600;
@@ -98,14 +97,14 @@
     color: var(--blue);
   }
 
-  label {
+  .label {
     display: block;
     margin-bottom: 8px;
     font-size: 14px;
     line-height: 150%;
     color: var(--gunmetal);
   }
-  input {
+  .input {
     width: 100%;
     border: 1px solid var(--dark-electric-blue);
     color: var(--gunmetal);
@@ -135,13 +134,13 @@
   background-color: var(--blue);
   border-radius: 16px;
 
-  strong {
+  .strong {
     font-size: 16px;
     line-height: 150%;
     font-weight: 600;
   }
 
-  output {
+  .output {
     margin-top: 8px;
     font-size: 48px;
     font-weight: 600;
@@ -151,13 +150,13 @@
     overflow: hidden;
   }
 
-  p {
+  .paragraph {
     margin-top: 24px;
     font-size: 14px;
     line-height: 150%;
   }
 
-  span {
+  .ideal {
     font-weight: 700;
   }
 }
@@ -191,12 +190,12 @@
       gap: 16px;
     }
 
-    label {
+    .label {
       width: 100%;
       flex-grow: 1;
     }
 
-    input {
+    .input {
       flex-grow: 1;
       flex-shrink: 1;
       flex-basis: 132px;
@@ -285,15 +284,15 @@
     align-items: center;
     column-gap: 25px;
 
-    strong {
+    .strong {
       grid-area: strong;
     }
 
-    output {
+    .output {
       grid-area: output;
     }
 
-    p {
+    .paragraph {
       grid-area: paragraph;
       width: 70%;
       grid-column: span 2;
@@ -304,8 +303,8 @@
 
 @media screen and (min-width: 1024px) {
   .calculator {
-    max-width: 564px;
+    width: 564px;
     top: 20px;
-    left: calc(50% - 30px);
+    left: calc(60% - 30px);
   }
 }

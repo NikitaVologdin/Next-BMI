@@ -146,7 +146,7 @@ export default function Calculator() {
         system === "metric" ? styles.metric : styles.imperial
       }`}
     >
-      <form action="">
+      <form>
         <h2 className={styles.title}>Enter your details below</h2>
         <fieldset className={styles.system}>
           <div className={styles.radio__control}>
@@ -212,7 +212,7 @@ export default function Calculator() {
           <div
             className={`${styles.input__control} ${styles.control__imperial}`}
           >
-            <label id="height" className={styles.label}>
+            <label htmlFor="height" className={styles.label}>
               Height
             </label>
             <div className={styles.height}>
@@ -237,7 +237,7 @@ export default function Calculator() {
           <div
             className={`${styles.input__control} ${styles.control__imperial}`}
           >
-            <label htmlFor="weight" id="weight" className={styles.label}>
+            <label htmlFor="weight" className={styles.label}>
               Weight
             </label>
             <div className={styles.width}>

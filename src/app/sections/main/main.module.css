@@ -9,6 +9,31 @@
 }
 @media screen and (min-width: 1024px) {
   .main {
-    margin-top: 145px;
+    margin-top: 90px;
+    position: relative;
+  }
+
+  .curved__right {
+    width: 300px;
+    height: 200px;
+    border: 1px solid #acc1de;
+    border-color: #acc1de #0000 #0000;
+    border-radius: 50% / 60px 85px 0 0;
+    position: absolute;
+    left: 65%;
+    top: -6%;
+    transform: rotate(121deg);
+  }
+
+  .curved__left {
+    width: 250px;
+    height: 150px;
+    border: 1px solid #acc1de;
+    border-color: #acc1de #0000 #0000;
+    border-radius: 50% / 120px 85px 0 0;
+    position: absolute;
+    bottom: 21%;
+    left: 15%;
+    transform: rotate(240deg);
   }
 }

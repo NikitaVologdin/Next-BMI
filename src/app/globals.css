@@ -1,42 +1,112 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --dark-electric-blue: hsl(215, 17%, 45%);
+  --gunmetal: hsl(215, 31%, 21%);
+  --blue: hsl(227, 92%, 58%);
+  --white: hsl(0, 0%, 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-html,
+* {
+  margin: 0;
+}
+
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root,
+#__next {
+  isolation: isolate;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.heading-xl {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 110%;
+  letter-spacing: -3.25px;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
+.heading-l {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 110%;
+  letter-spacing: -2.4px;
 }
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.heading-m {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 110%;
+  letter-spacing: -1.2px;
+}
+.heading-s {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 110%;
+  letter-spacing: -1px;
+}
+.body-m {
+  font-size: 16px;
+  line-height: 150%;
+}
+.body-m-bold {
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 600;
+}
+.body-s {
+  font-size: 14px;
+  line-height: 150%;
 }

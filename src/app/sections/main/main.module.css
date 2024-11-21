@@ -2,12 +2,12 @@
   margin-top: 550px;
 }
 
-@media screen and (min-width: 768) {
+@media screen and (min-width: 768px) {
   .main {
     margin-top: 400px;
   }
 }
-@media screen and (min-width: 1024) {
+@media screen and (min-width: 1024px) {
   .main {
     margin-top: 145px;
   }

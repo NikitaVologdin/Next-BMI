@@ -81,6 +81,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  margin-top: 24px;
 }
 
 .input__control {
@@ -324,7 +325,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1160px) {
   .title {
     text-align: left;
   }

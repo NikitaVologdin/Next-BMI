@@ -11,6 +11,7 @@
   .system,
   .data {
     border: none;
+    padding: 0;
   }
 }
 
@@ -39,14 +40,19 @@
     appearance: none;
     width: 31px;
     height: 31px;
-    border: 1px solid var(--gunmetal);
+    outline: 1px solid var(--gunmetal);
     border-radius: 50%;
     cursor: pointer;
     display: grid;
     place-content: center;
     overflow: hidden;
+    transition: outline-color 0.3s ease-in-out;
+
     &:hover {
-      border-color: var(--blue);
+      outline-color: var(--blue);
+    }
+    &:checked {
+      outline: none;
     }
     &:before {
       content: "";
@@ -115,7 +121,11 @@
     font-weight: 600;
     line-height: 110%;
     letter-spacing: -1.2px;
+    transition: border-color 0.3s ease-in-out;
     &:focus {
+      border-color: var(--blue);
+    }
+    &:hover {
       border-color: var(--blue);
     }
   }
@@ -315,9 +325,13 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .title {
+    text-align: left;
+  }
   .calculator {
     width: 564px;
-    top: 20px;
-    left: calc(60% - 30px);
+    padding: 32px;
+    top: 55px;
+    left: calc(50% + 20px);
   }
 }

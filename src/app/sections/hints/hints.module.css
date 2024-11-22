@@ -2,8 +2,8 @@
   margin-top: 71px;
   padding: 56px 0;
   border-radius: 35px;
-  background: linear-gradient(157deg, #d6e6fe00, #d6e6fe),
-    linear-gradient(130deg, #d6fcfe, #d6fcfe00);
+  background: linear-gradient(157deg, #d6e6fe00, #d6e6fe29),
+    linear-gradient(130deg, #d6fcfe26, #d6fcfe00);
 
   .hints__list {
     padding: 0;
@@ -50,8 +50,9 @@
   }
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1160px) {
   .hints {
+    margin-top: 95px;
     margin-left: 24px;
     margin-right: 24px;
     padding: 0 116px;
@@ -59,6 +60,7 @@
     padding-bottom: 96px;
     .hints__list {
       flex-direction: row;
+      gap: 95px;
     }
     .hints__item {
       display: flex;

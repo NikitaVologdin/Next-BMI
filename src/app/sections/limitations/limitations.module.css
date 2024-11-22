@@ -1,9 +1,9 @@
 .limitations {
   padding-bottom: 96px;
+  margin-top: 72px;
 }
 
 .limitations__article {
-  margin-top: 72px;
   margin-left: 24px;
   margin-right: 24px;
   .limitations__heading {
@@ -60,6 +60,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .limitations {
+    margin-top: 100px;
+  }
   .limitations__list {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -80,7 +83,7 @@
   }
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1160px) {
   .limitations__article {
     position: relative;
     .limitations__heading {
@@ -99,13 +102,14 @@
       position: absolute;
       top: 0;
       left: 120px;
-      width: 50%;
+      width: 40%;
     }
 
     .limitations__list {
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: repeat(3, 1fr);
-      column-gap: 32px;
+      column-gap: 37px;
+      row-gap: 24px;
 
       .list__item:nth-child(1) {
         grid-area: gender;

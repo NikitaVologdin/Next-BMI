@@ -43,18 +43,18 @@
   .background {
     min-height: 737px;
     background: linear-gradient(130deg, #d6e6fe00, #d6e6fe),
-      linear-gradient(130deg, #d6fcfe, #d6fcfe00);
+      linear-gradient(130deg, #d6fcfe00, #d6fcfe);
     position: absolute;
     top: 0;
     bottom: 737px;
     left: 24px;
-    right: 300px;
+    right: 440px;
     border-radius: 0px 0px 35px 35px;
   }
 
   .container {
     position: relative;
-    max-width: 1024px;
+    max-width: 1160px;
     margin: 0 auto;
     border-radius: 0px 0px 35px 35px;
   }

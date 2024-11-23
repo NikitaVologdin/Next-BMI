@@ -142,11 +142,15 @@ export default function Calculator() {
     return;
   }, [bmi, height, system]);
 
-  useEffect(() => {
+  function resetCalculator() {
     formRef.current?.reset();
     setBmi("0");
     setBmiDescription("");
     setIdealWheight("");
+  }
+
+  useEffect(() => {
+    resetCalculator();
   }, [system]);
 
   return (

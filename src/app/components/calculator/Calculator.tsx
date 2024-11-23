@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect, ChangeEvent } from "react";
+import { motion, MotionConfig } from "framer-motion";
+import { useState, useEffect, ChangeEvent, useRef } from "react";
 import styles from "./calculator.module.css";
 
 type TSystem = "metric" | "imperial";
@@ -16,6 +17,7 @@ export default function Calculator() {
   const [bmiDescription, setBmiDescription] = useState("");
   const [idealWheight, setIdealWheight] = useState("");
 
+  const formRef = useRef<HTMLFormElement>(null);
   function metricHandler() {
     setSystem("metric");
   }
@@ -140,13 +142,20 @@ export default function Calculator() {
     return;
   }, [bmi, height, system]);
 
+  useEffect(() => {
+    formRef.current?.reset();
+    setBmi("0");
+    setBmiDescription("");
+    setIdealWheight("");
+  }, [system]);
+
   return (
     <section
       className={`${styles.calculator} ${
         system === "metric" ? styles.metric : styles.imperial
       }`}
     >
-      <form>
+      <form ref={formRef}>
         <h2 className={styles.title}>Enter your details below</h2>
         <fieldset className={styles.system}>
           <div className={styles.radio__control}>
@@ -181,84 +190,92 @@ export default function Calculator() {
           </div>
         </fieldset>
         <fieldset className={styles.data}>
-          <div className={`${styles.input__control} ${styles.control__metric}`}>
-            <label htmlFor="height" className={styles.label}>
-              Height
-            </label>
-            <input
-              type="number"
-              id="height"
-              name="height"
-              aria-labelledby="height"
-              placeholder="0"
-              className={`${styles.cm} ${styles.input}`}
-              onChange={cmHandler}
-            />
-          </div>
-          <div className={`${styles.input__control} ${styles.control__metric}`}>
-            <label htmlFor="weight" className={styles.label}>
-              Weight
-            </label>
-            <input
-              type="number"
-              id="weight"
-              name="weight"
-              aria-labelledby="weight"
-              placeholder="0"
-              className={`${styles.kg} ${styles.input}`}
-              onChange={kgHandler}
-            />
-          </div>
-          <div
-            className={`${styles.input__control} ${styles.control__imperial}`}
-          >
-            <label htmlFor="height" className={styles.label}>
-              Height
-            </label>
-            <div className={styles.height}>
-              <input
+          <MotionConfig>
+            <div
+              className={`${styles.input__control} ${styles.control__metric}`}
+            >
+              <label htmlFor="height" className={styles.label}>
+                Height
+              </label>
+              <motion.input
                 type="number"
-                name="ft"
+                id="height"
+                name="height"
                 aria-labelledby="height"
                 placeholder="0"
-                className={`${styles.ft} ${styles.input}`}
-                onChange={ftHandler}
-              />
-              <input
-                type="number"
-                name="in"
-                aria-labelledby="height"
-                placeholder="0"
-                className={`${styles.in} ${styles.input}`}
-                onChange={incHandler}
+                className={`${styles.cm} ${styles.input}`}
+                onChange={cmHandler}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
               />
             </div>
-          </div>
-          <div
-            className={`${styles.input__control} ${styles.control__imperial}`}
-          >
-            <label htmlFor="weight" className={styles.label}>
-              Weight
-            </label>
-            <div className={styles.width}>
-              <input
+            <div
+              className={`${styles.input__control} ${styles.control__metric}`}
+            >
+              <label htmlFor="weight" className={styles.label}>
+                Weight
+              </label>
+              <motion.input
                 type="number"
-                name="st"
+                id="weight"
+                name="weight"
                 aria-labelledby="weight"
                 placeholder="0"
-                className={`${styles.st} ${styles.input}`}
-                onChange={stHandler}
-              />
-              <input
-                type="number"
-                name="lbs"
-                aria-labelledby="weight"
-                placeholder="0"
-                className={`${styles.lbs} ${styles.input}`}
-                onChange={lbsHandler}
+                className={`${styles.kg} ${styles.input}`}
+                onChange={kgHandler}
               />
             </div>
-          </div>
+            <div
+              className={`${styles.input__control} ${styles.control__imperial}`}
+            >
+              <label htmlFor="height" className={styles.label}>
+                Height
+              </label>
+              <div className={styles.height}>
+                <motion.input
+                  type="number"
+                  name="ft"
+                  aria-labelledby="height"
+                  placeholder="0"
+                  className={`${styles.ft} ${styles.input}`}
+                  onChange={ftHandler}
+                />
+                <motion.input
+                  type="number"
+                  name="in"
+                  aria-labelledby="height"
+                  placeholder="0"
+                  className={`${styles.in} ${styles.input}`}
+                  onChange={incHandler}
+                />
+              </div>
+            </div>
+            <div
+              className={`${styles.input__control} ${styles.control__imperial}`}
+            >
+              <label htmlFor="weight" className={styles.label}>
+                Weight
+              </label>
+              <div className={styles.width}>
+                <motion.input
+                  type="number"
+                  name="st"
+                  aria-labelledby="weight"
+                  placeholder="0"
+                  className={`${styles.st} ${styles.input}`}
+                  onChange={stHandler}
+                />
+                <motion.input
+                  type="number"
+                  name="lbs"
+                  aria-labelledby="weight"
+                  placeholder="0"
+                  className={`${styles.lbs} ${styles.input}`}
+                  onChange={lbsHandler}
+                />
+              </div>
+            </div>
+          </MotionConfig>
         </fieldset>
         <div className={styles.result}>
           {bmi !== "0" ? (

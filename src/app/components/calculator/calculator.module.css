@@ -132,12 +132,6 @@
   }
 }
 
-@starting-style {
-  .input__control {
-    opacity: 0;
-  }
-}
-
 .result {
   margin-top: 24px;
   padding: 32px;
